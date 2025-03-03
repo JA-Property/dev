@@ -20,7 +20,7 @@ if ($method === 'GET') {
         echo "No valid GET action specified.";
     }
 } elseif ($method === 'POST') {
-    // Assuming any POST request is for storing a new employee.
+    // All POST requests are assumed to be for storing a new employee.
     $controller->store();
 } else {
     echo "No valid action specified.";
