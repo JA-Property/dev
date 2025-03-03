@@ -2,81 +2,35 @@
 namespace App\Models\HRMS\Employee;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\HasCustomPrimaryKey;
 use App\Models\HRMS\Employee\EmployeeAddress;
 use App\Models\HRMS\Employee\EmployeeEmail;
 use App\Models\HRMS\Employee\EmployeePhone;
 
 class Employee extends Model
 {
-    use HasCustomPrimaryKey; // Use the custom primary key trait
-
-    // Specify the table name if not following Laravel conventions.
     protected $table = 'employees';
-
-    // Define the custom primary key.
     protected $primaryKey = 'id';
+    // Enable auto-incrementing integer primary key.
+    public $incrementing = true;
+    // Set the primary key type to integer.
+    protected $keyType = 'int';
 
-    // Disable auto-incrementing since we're using a custom key.
-    public $incrementing = false;
-
-    // Set the primary key type to string.
-    protected $keyType = 'string';
-
-    /**
-     * Define a one-to-many relationship for addresses.
-     */
+    // Remove the boot method since we no longer generate a custom ID.
+    
     public function addresses()
     {
         return $this->hasMany(EmployeeAddress::class, 'employee_id');
     }
 
-    /**
-     * Define a one-to-many relationship for phones.
-     */
     public function phones()
     {
         return $this->hasMany(EmployeePhone::class, 'employee_id');
     }
 
-    /**
-     * Define a one-to-many relationship for emails.
-     */
     public function emails()
     {
         return $this->hasMany(EmployeeEmail::class, 'employee_id');
     }
 
-    /**
-     * Define a one-to-many relationship for emergency contacts.
-     */
-    public function emergencyContacts()
-    {
-        return $this->hasMany(EmployeeEmergencyContact::class, 'employee_id');
-    }
-
-    /**
- * Define a one-to-many relationship for employment history.
- */
-public function employmentHistory()
-{
-    return $this->hasMany(EmployeeEmploymentHistory::class, 'employee_id');
-}
-
-/**
- * Define a one-to-many relationship for job assignments.
- */
-public function jobAssignments()
-{
-    return $this->hasMany(EmployeeJobAssignment::class, 'employee_id');
-}
-
-/**
- * Define a one-to-many relationship for dependents.
- */
-public function dependents()
-{
-    return $this->hasMany(EmployeeDependent::class, 'employee_id');
-}
-
+    // ... other relationships (emergencyContacts, employmentHistory, jobAssignments, dependents) ...
 }

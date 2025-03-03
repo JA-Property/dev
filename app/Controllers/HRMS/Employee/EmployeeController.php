@@ -12,7 +12,7 @@ class EmployeeController
      */
     public function show($id)
     {
-        // Retrieve the employee along with related data (including new relationships if needed).
+        // Retrieve the employee with all related data.
         $employee = Employee::with([
             'addresses', 
             'phones', 
@@ -42,27 +42,24 @@ class EmployeeController
     /**
      * Process the form submission to create a new employee.
      */
-
     public function store()
     {
-        // Basic validation example. In a real app, add more robust validation.
         if (empty($_POST['first_name']) || empty($_POST['last_name'])) {
             echo "First name and last name are required.";
             return;
         }
-
+    
         $employee = new Employee();
         $employee->first_name = $_POST['first_name'];
         $employee->middle_name = $_POST['middle_name'] ?? null;
         $employee->last_name = $_POST['last_name'];
-        // Set additional fields if needed.
-
+    
         if ($employee->save()) {
-            // Redirect to show the newly created employee.
             header("Location: /?action=show&id=" . $employee->id);
             exit;
         } else {
             echo "Error creating employee.";
         }
     }
+    
 }
