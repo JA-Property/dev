@@ -1,0 +1,103 @@
+###############################################################################
+# Logs and Temporary Files
+###############################################################################
+# Ignore all log files
+*.log
+
+# Ignore temporary files and folders
+*.tmp
+**/temp/*
+
+# Backup files (e.g. created by editors)
+*~
+
+###############################################################################
+# Build and Distribution Directories
+###############################################################################
+# Ignore build output at the root and in subdirectories
+/build/
+**/build/
+# Ignore distribution directories (e.g. for packaging)
+dist/
+**/dist/
+# Ignore compiled files (e.g. Java class files, binaries)
+*.class
+*.o
+*.so
+*.exe
+
+###############################################################################
+# Dependency and Package Manager Directories
+###############################################################################
+# Ignore node modules everywhere
+node_modules/
+# Ignore vendor directories for PHP or Ruby projects
+/vendor/
+/.bundle/
+
+###############################################################################
+# IDE, Editor, and OS Files
+###############################################################################
+# IDE-specific files and project settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+###############################################################################
+# Language-Specific Files and Folders
+###############################################################################
+# Python: Bytecode, caches, and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+
+# Java: Logs, compiled classes, and package files
+*.jar
+*.war
+*.ear
+
+# C/C++: Object files, executables, and dependency files
+*.obj
+*.elf
+*.map
+
+# Ruby: Gem dependencies and Bundler config
+*.gem
+*.rbc
+.rbenv-vars
+
+###############################################################################
+# Git Specific
+###############################################################################
+# Ignore all dotfiles except .gitignore
+.*
+!.gitignore
+
+###############################################################################
+# Application-Specific and Miscellaneous
+###############################################################################
+# Allow specific exceptions in logs
+/logs
+!logs/important.log
+
+# Miscellaneous backup files
+*.bak
+*.old
+
+# Custom patterns (Add any other files/folders specific to your project)
+# e.g. Ignore generated documentation
+docs/generated/
+
+###############################################################################
+# Global patterns (can also be placed in your global .gitignore)
+###############################################################################
