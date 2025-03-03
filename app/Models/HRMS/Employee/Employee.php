@@ -46,4 +46,37 @@ class Employee extends Model
     {
         return $this->hasMany(EmployeeEmail::class, 'employee_id');
     }
+
+    /**
+     * Define a one-to-many relationship for emergency contacts.
+     */
+    public function emergencyContacts()
+    {
+        return $this->hasMany(EmployeeEmergencyContact::class, 'employee_id');
+    }
+
+    /**
+ * Define a one-to-many relationship for employment history.
+ */
+public function employmentHistory()
+{
+    return $this->hasMany(EmployeeEmploymentHistory::class, 'employee_id');
+}
+
+/**
+ * Define a one-to-many relationship for job assignments.
+ */
+public function jobAssignments()
+{
+    return $this->hasMany(EmployeeJobAssignment::class, 'employee_id');
+}
+
+/**
+ * Define a one-to-many relationship for dependents.
+ */
+public function dependents()
+{
+    return $this->hasMany(EmployeeDependent::class, 'employee_id');
+}
+
 }

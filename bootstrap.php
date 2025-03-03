@@ -10,14 +10,15 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/');
 $dotenv->load();
 
-// Define an array of required variables.
-$required = ['DB_DRIVER', 'DB_HOST', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD'];
+// Define an array of required variables (excluding DB_PASSWORD)
+$required = ['DB_DRIVER', 'DB_HOST', 'DB_DATABASE', 'DB_USERNAME'];
 
 foreach ($required as $var) {
     if (empty($_ENV[$var])) {
         throw new \Exception("Environment variable {$var} is not set.");
     }
 }
+
 
 $capsule = new Capsule;
 
