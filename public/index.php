@@ -3,9 +3,9 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use App\Controllers\EmployeeController;
+use App\Controllers\HRMS\Employee\EmployeeController;
 
-// Basic routing based on a GET parameter "action" and "id"
+// Basic routing based on GET parameters 'action' and 'id'
 $action = $_GET['action'] ?? 'show';
 $id     = $_GET['id'] ?? null;
 
