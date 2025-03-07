@@ -10,13 +10,9 @@ class Employee extends Model
 {
     protected $table = 'employees';
     protected $primaryKey = 'id';
-    // Enable auto-incrementing integer primary key.
-    public $incrementing = true;
-    // Set the primary key type to integer.
-    protected $keyType = 'int';
+    public $incrementing = true;  // Enable auto-increment
+    protected $keyType = 'int';     // Primary key type is integer
 
-    // Remove the boot method since we no longer generate a custom ID.
-    
     public function addresses()
     {
         return $this->hasMany(EmployeeAddress::class, 'employee_id');
@@ -32,5 +28,5 @@ class Employee extends Model
         return $this->hasMany(EmployeeEmail::class, 'employee_id');
     }
 
-    // ... other relationships (emergencyContacts, employmentHistory, jobAssignments, dependents) ...
+    // ... other relationships ...
 }

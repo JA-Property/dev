@@ -1,7 +1,21 @@
 <?php
 // public/index.php
+use App\Core\GlobalLogger;
 
 require_once __DIR__ . '/../bootstrap.php';
+
+
+// Debugging inside the Authentication module
+GlobalLogger::debug("AuthModule", "This is a debug message");
+
+// Informational log for user login inside UserModule
+GlobalLogger::info("UserModule", "User logged in", ['user_id' => 123]);
+
+// Warning inside PerformanceModule
+GlobalLogger::warning("PerformanceModule", "Memory usage is high");
+
+// Error inside DatabaseModule
+GlobalLogger::error("DatabaseModule", "Database connection failed", ['host' => 'localhost']);
 
 use App\Controllers\HRMS\Employee\EmployeeController;
 
